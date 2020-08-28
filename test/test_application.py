@@ -1148,6 +1148,9 @@ class TestApplication(unittest.TestCase):
 
         await until_succeeds('http://dataworkspace.test:8000/healthcheck')
 
+        await asyncio.sleep(1)
+        sentry_requests.clear()
+
         async with session.request(
             'GET',
             'http://testapplication-23b40dd9.dataworkspace.test:8000/http',
